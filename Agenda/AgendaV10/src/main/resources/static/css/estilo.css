@@ -1,0 +1,141 @@
+body{
+    background: black;
+    color: white;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+table{
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+}
+
+.conteudo {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #2b2a2a;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.topo input {
+    width: 400px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1.2rem;
+    background: #191818;
+    color: white;
+}
+
+.topo button {
+    width: 60px;
+    border-radius: 12px;
+    border: 1px solid black;
+    background: #191818; 
+    color: white;
+    outline: none;
+}
+
+.topo button:hover {
+    background: #1f1e1e;
+    cursor: pointer;
+}
+
+.listaPessoas tr{
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+    overflow-y: scroll;
+    min-height: none;
+    max-height: 350px;
+}
+
+tbody tr {
+    padding: 10px;
+    background: #191818;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.listaPessoas tr #Nome {
+    display: block;
+    min-width: 200px;
+    max-width: 200px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+
+.listaPessoas tr #Id {
+    display: block;
+    min-width: 30px;
+    max-width: 30px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:unset;
+}
+
+.listaPessoas tr #Telefone {
+    display: block;
+    min-width: 150px;
+    max-width: 150px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:unset;
+}
+
+.botoes {
+    display: block;
+    min-width: 100px;
+    max-width: 100px;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+#btnEditar {
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    cursor: pointer;
+    background: #2b2a2a;
+    color: white;
+}
+
+#btnEditar:hover {
+    background: #3c3a3a;
+}
+
+#btnApagar {
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    cursor: pointer;
+    background: #2b2a2a;
+    color: white;
+}
+
+#btnApagar:hover {
+    background: #3c3a3a;
+}
+

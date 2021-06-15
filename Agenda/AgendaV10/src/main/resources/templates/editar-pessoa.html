@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDITAR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<style>
+        body {
+            background:black;
+            color: white;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+
+        table.barra {
+            background: #191818;
+            height: 20px;
+            border-radius: 12px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        tbody tr {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            min-height: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Ultra', sans-serif;
+            font-size: 25px;
+            line-height: 50px;
+            text-transform: uppercase;
+            text-shadow: 0 2px rgb(63, 62, 62), 0 3px rgb(0, 0, 0);
+
+        }
+
+        button {
+            border-radius: 7px;
+            width: 80px;
+            height: 25px;
+            background: #111010e3;
+            color: white;
+            cursor: pointer;
+        }
+
+        .Sexo {
+            width: 258px;
+            height: 23;
+        }
+
+        input {
+            border-radius: 7px;
+        }
+
+        select {
+            text-align-last: center;
+            cursor: pointer;
+            border-radius: 7px;
+        }
+
+        tr:nth-of-type(odd) {
+            background-color: #111010e3;
+            border-radius: 12px;
+        }
+
+        td {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        input {
+            width: 250px;
+        }
+
+    </style>
+
+<h1>EDITAR CADASTRO</h1>
+<div>
+
+    <form action="#" th:action="@{/}" th:object="${pessoa}" method="post">
+
+        <table class="barra">
+            <tbody>
+            <tr>
+                <td>Nome:</td>
+                <td><input type="text" name="Nome" id="Nome" required th:field="*{nome}"></td>
+            </tr>
+
+            <tr>
+                <td>Sexo:</td>
+                <td>
+                    <select class="Sexo" required th:field="*{sexo}">
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Estado civil:</td>
+                <td>
+                    <select class="Sexo" required th:field="*{estadocivil}">
+                        <option value="Solteiro">Solteiro</option>
+                        <option value="Casado">Casado</option>
+                        <option value="Viuvo">Viuvo</option>
+                        <option value="Separado judicialmente">Separado judicialmente</option>
+                        <option value="Divorciado">Divorciado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>CEP:</td>
+                <td><input type="text" name="Cep" id="Cep" required th:field="*{endereco.cep}"></td>
+            </tr>
+            <tr>
+                <td>Logradouro:</td>
+                <td><input type="text" name="Logradouro" id="Logradouro" required
+                           th:field="*{endereco.logradouro}"></td>
+            </tr>
+            <tr>
+                <td>Número:</td>
+                <td><input type="text" required th:field="*{endereco.numero}"></td>
+            </tr>
+            <tr>
+                <td>Complemento:</td>
+                <td><input type="text" name="Complemento" id="Complemento" required
+                           th:field="*{endereco.complemento}"></td>
+            </tr>
+            <tr>
+                <td>Bairro:</td>
+                <td><input type="text" name="Bairro" id="Bairro" required th:field="*{endereco.bairro}"></td>
+            </tr>
+            <tr>
+                <td>Cidade:</td>
+                <td><input type="text" name="Cidade" id="Cidade" required th:field="*{endereco.cidade}"></td>
+            </tr>
+            <tr>
+                <td>País:</td>
+                <td><input type="text" name="Pais" id="Pais" required th:field="*{endereco.pais}"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="text" name="Email" id="Email" required th:field="*{contato.email}"></td>
+            </tr>
+            <tr>
+                <td>Celular:</td>
+                <td><input type="text" name="celular" id="celular" required th:field="*{contato.celular}"></td>
+            </tr>
+            <tr>
+                <td>Telefone Fixo:</td>
+                <td><input type="text" name="telefonefixo" id="telefonefixo" th:field="*{contato.telefonefixo}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"> <button type="button" value="Voltar" onclick="javascript: history.go(-1)"><i
+                        class="fa fa-mail-reply"></i></td>
+
+                <td colspan="2"><button class="btnRelatorio" onClick="window.print()"><i class="fa fa-download"></i></button> </td>
+
+                <td colspan="2"><button type="submit">Salvar</button> </td>
+
+
+            </tr>
+            </tbody>
+        </table>
+        <tr style='visibility:collapse'>
+            <td>
+                <input type="hidden" th:field="*{id}" readonly="readonly" />
+            </td>
+        </tr>
+        <tr style='visibility:collapse'>
+            <td><input type="hidden" th:field="*{endereco.idend}" /></td>
+        </tr>
+        <tr style='visibility:collapse'>
+            <td><input type="hidden" th:field="*{contato.idcont}" /></td>
+        </tr>
+    </form>
+</div>
+</body>
+
+</html>

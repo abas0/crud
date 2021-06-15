@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELATORIO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{css/estilo.css}">
+</head>
+
+<body>
+
+<style>
+        body {
+            background: black;
+            color: white;
+            margin: 0;
+            font-family: "Lucida Console";
+            font-size: 15px;
+        }
+
+        table {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+
+        }
+
+
+        .topo button:hover {
+            background: #1f1e1e;
+            cursor: pointer;
+        }
+
+
+
+       td {
+            height:100%;
+            width:50%;
+
+        }
+
+         tr {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+            min-height: none;
+            max-height: 350px;
+            text-align: left;
+
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Ultra', sans-serif;
+            font-size: 25px;
+            line-height: 50px;
+            text-transform: uppercase;
+            text-shadow: 0 2px rgb(63, 62, 62), 0 3px rgb(0, 0, 0);
+        }
+
+        button {
+            margin-left: 48%;
+            margin-bottom: 20px;
+            width: 50px;
+            height:25px;
+
+        }
+        .listaPessoas #Id {
+            min-width: 50px;
+            max-width: 50px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+
+
+        }
+        
+        .Id {
+            min-width: 50px;
+            max-width: 50px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+
+
+        }
+
+        .listaPessoas #Nome {
+
+            min-width: 300px;
+            max-width:300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+			text-overflow: ellipsis;
+			margin: 20px;
+        }
+        
+        .Nome {
+
+            min-width: 300px;
+            max-width:300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+			text-overflow: ellipsis;
+			margin: 20px;
+        }
+        
+
+        .listaPessoas #Celular {
+
+            min-width: 110px;
+            max-width: 110px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+			text-overflow: ellipsis;
+        }
+        
+        
+         .Celular {
+
+            min-width: 110px;
+            max-width: 110px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+			text-overflow: ellipsis;
+        }
+        
+
+        .listaPessoas #Email {
+
+            min-width: 280px;
+            max-width: 280px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        .Email {
+
+            min-width: 280px;
+            max-width: 280px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+
+        .listaPessoas #Telefone {
+
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        .Telefone {
+
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        .listaPessoas #Complemento {
+
+            min-width: 130px;
+            max-width: 130px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        .Complemento {
+
+            min-width: 130px;
+            max-width: 130px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        
+
+        .listaPessoas #Lagradouro {
+
+            min-width: 250px;
+            max-width: 250px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        
+        .Logradouro {
+
+            min-width: 250px;
+            max-width: 250px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        .listaPessoas #Numero {
+
+            min-width: 60px;
+            max-width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        
+        .Numero {
+
+            min-width: 60px;
+            max-width:100px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+
+        .listaPessoas #Bairro {
+
+            min-width: 180px;
+            max-width: 180px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+    		text-overflow: ellipsis;
+        }
+        
+         .Bairro {
+
+            min-width: 180px;
+            max-width: 180px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+    		text-overflow: ellipsis;
+        }
+        
+        
+         .listaPessoas #Cidade {
+
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+    		text-overflow: ellipsis;
+        }
+        
+         .Cidade {
+
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+    		text-overflow: ellipsis;
+        }
+        
+        
+
+        .listaPessoas #Cep {
+
+            min-width: 100px;
+            max-width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+         .Cep {
+
+            min-width: 100px;
+            max-width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+
+        .listaPessoas #Pais {
+
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+        
+        .Pais {
+
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+      
+
+
+    </style>
+
+<h1>Relatório</h1>
+
+<div class="topo" >
+    <button class="btnRelatorio" onClick="window.print()"><i class="fa fa-download"></i></button>
+</div>
+
+<table>
+    <tbody>
+    <tr>
+            <td class="Id">ID</td>
+            <td class="Nome" >Nome </td>
+            <td class="Celular" >Celular</td>
+            <td class="Email" >E-mail</td>
+            <td class="Telefone" >Telefone</td>
+            <td class="Lagradouro" >Logradouro</td>
+            <td class="Numero" >Número</td>
+            <td class="Bairro" >Bairro</td>
+            <td class="Cidade" >Cidade</td>
+            <td class="Complemento" >Complemento</td>
+            <td class="Cep" >Cep</td>
+            <td class="Pais" >País</td>
+            
+
+        </tr>
+    
+    <tr th:each="pessoa:${pessoas}" class="listaPessoas">
+    <td th:text="${pessoa.id}" id="Id"></td>
+    <td th:text="${pessoa.nome}" id="Nome"></td>
+    <td th:text="${pessoa.contato.celular}" id="Celular"></td>
+    <td th:text="${pessoa.contato.email}" id="Email"></td>
+    <td th:text="${pessoa.contato.telefonefixo}" id="Telefone"></td>
+    <td th:text="${pessoa.endereco.logradouro}" id="Lagradouro"></td>
+    <td th:text="${pessoa.endereco.numero}" id="Numero"></td>
+    <td th:text="${pessoa.endereco.bairro}" id="Bairro"></td>
+    <td th:text="${pessoa.endereco.cidade}" id="Cidade"></td>
+    <td th:text="${pessoa.endereco.complemento}" id="Complemento"></td>
+    <td th:text="${pessoa.endereco.cep}" id="Cep"></td>
+    <td th:text="${pessoa.endereco.pais}" id="Pais"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+
+</body>
+
+</html>

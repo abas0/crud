@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{css/estilo.css}">
+
+
+</head>
+
+<body>
+
+<style>
+        body {
+            background: black;
+            color: white;
+            margin: 0;
+            font-family: "Lucida Console";
+            font-size: 1rem;
+        }
+
+        table {
+            display: table;
+            border-collapse: separate;
+            width: 100%;
+        }
+
+        .conteudo {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background: #2b2a2a;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 35px;
+        }
+
+        .topo input {
+            width: 400px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid black;
+            outline: none;
+            font-size: 1.2rem;
+            background: #191818;
+            color: white;
+        }
+
+        .topo button {
+            width: 55px;
+            border-radius: 12px;
+            border: 1px solid black;
+            background: #191818;
+            color: white;
+            outline: none;
+        }
+
+        .topo button:hover {
+            background: #1f1e1e;
+            cursor: pointer;
+        }
+
+        .listaPessoas tr {
+            list-style-type: none;
+            padding: 0;
+            margin: 0px;
+            overflow-y: scroll;
+            min-height: none;
+            max-height: 350px;
+            align-items: left;
+        }
+
+        .listaInteira tr {
+            padding: 10px;
+            background: #191818;
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .listaPessoas #Nome {
+            padding-right: 80px;
+            display: block;
+            min-width: 200px;
+            max-width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 10px;
+        }
+
+        .listaPessoas #Id {
+            padding-right: 50px;
+            display: block;
+            min-width: 30px;
+            max-width: 30px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+        }
+
+        .listaPessoas #Numero {
+            display: block;
+            min-width: 150px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: unset;
+            text-overflow: ellipsis;
+        }
+
+        .botoes {
+            display: block;
+            min-width: 100px;
+            max-width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #btnEditar {
+            border-radius: 15px;
+            border: 1px solid black;
+            width: 38px;
+            height: 38px;
+            margin-right: 8px;
+            cursor: pointer;
+            background: #2b2a2a;
+            color: white;
+        }
+
+        #btnApagar {
+            border-radius: 15px;
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+            cursor: pointer;
+            background: #2b2a2a;
+            color: white;
+        }
+        
+        #btnAddBusca {
+            border-radius: 15px;
+            border: 1px solid black;
+            width: 60px;
+            height: 60px;
+            margin-right: 0px;
+            cursor: pointer;
+            background: #191818;
+            color: white;
+        }
+
+        #btnEditar:hover {
+            background: #3c3a3a;
+        }
+
+        #btnApagar:hover {
+            background: #3c3a3a;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Ultra', sans-serif;
+            font-size: 25px;
+            line-height: 50px;
+            text-transform: uppercase;
+            text-shadow: 0 2px rgb(63, 62, 62), 0 3px rgb(0, 0, 0);
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 20px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 20px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .tituloLista tr{
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 1;
+            width: 400px;
+            padding: 2px;
+            margin-left: 5px;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1px;
+            text-decoration: underline;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .tituloLista td{
+            margin-left: 10px;
+        }
+
+    </style>
+<h1>Agenda</h1>
+
+<div class="conteudo">
+
+    <div class="topo">
+        <form action="#" th:action="@{/pesquisar}" method="POST">
+            <input type="search" id="buscar" name="buscar" placeholder="Buscar por nome...">
+ 				<button type="submit" class="btnAddBusca" id="btnAddBusca"><i class="fa fa-eye"></i></button>       
+        </form>
+        
+				
+        
+        <button class="btnAddCadastro" onclick="window.location.href='/novo-cadastro'"><i
+                class="fa fa-plus"></i></button>
+
+        <button class="btnRelatorio" onclick="window.location.href='/relatorio'"><i
+                class="fa fa-download"></i></button>
+    </div>
+
+    <table>
+        <tbody colspan="3" class="tituloLista">
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Telefone</td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+    <table>
+        <tbody class="listaInteira">
+        <tr th:each="pessoa:${pessoas}" class="listaPessoas">
+            <td th:text="${pessoa.id}" id="Id"></td>
+            <td th:text="${pessoa.nome}" id="Nome"></td>
+            <td th:text="${pessoa.contato.celular}" id="Numero"></td>
+            <td>
+                <div class="botoes">
+
+
+                    <a th:href="@{/editar/{id}(id=${pessoa.id})}">
+                        <button id="btnEditar">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </a>
+                    <a th:href="@{/apagar/{id}(id=${pessoa.id})}">
+                        <button id="btnApagar">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </a>
+
+                </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+
+</html>
